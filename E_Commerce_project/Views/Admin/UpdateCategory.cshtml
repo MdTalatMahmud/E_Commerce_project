@@ -1,0 +1,43 @@
+﻿@model E_Commerce_project.Models.CategoryDetail
+@{
+    ViewBag.Title = "UpdateCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style type="text/css">.from-control { width: 70%;border: 2px solid blueviolet;
+     border-radius: 5px; }</style>
+
+<div class="card shadow mb-4">
+    @* <div class="card-header py-3"> *@
+    @*     <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> *@
+    @* </div> *@
+    <div class="card-body">
+        <div class="table-responsive">
+            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                @* <div class="row"> *@
+
+                    @* <div class="col-sm-12 col-md-6"> *@
+                    @*     <div class="dataTables_length" id="dataTable_length"><label>Show <select name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div> *@
+                    @* </div> *@
+                    @* <div class="col-sm-12 col-md-6"> *@
+                    @*     <div id="dataTable_filter" class="dataTables_filter"><a href="#" class="btn btn-info pull-right ">+ Add New</a><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="dataTable"></label></div> *@
+                    @* </div> *@
+                @* </div> *@
+                
+                @using (Html.BeginForm("UpdateCategory", "Admin", FormMethod.Post, new {enctype = "multipart/form-data"}))
+                {
+                    <div class="form-group">
+                        <label class="control-label">Category Name</label>
+                        @Html.TextBoxFor(m => m.CategoryName, new {@class = "from-control", placeholder = "Enter Category Name", required = "Required", autofocus = "autofocus"})
+                        @Html.ValidationMessageFor(m => m.CategoryName, "", new {@class = "text-danger"})
+                    </div>
+
+                    <input type="submit" class="btn btn-primary" value="Save"/>
+                    <a onclick="window.history.back();" class="btn btn-danger">Cancel</a>
+                }
+                <div class="row">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
