@@ -50,7 +50,7 @@ namespace E_Commerce_project.Controllers
 
         public ActionResult Product()
         {
-            return View();
+            return View(_unitOfWork.GetRepositoryInstance<Tbl_Product>().GetProduct());
         }
     }
 }

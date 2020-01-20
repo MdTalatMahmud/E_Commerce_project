@@ -20,6 +20,11 @@ namespace E_Commerce_project.Repository
             _dbSet = _DBEntity.Set<Tbl_Entity>();
         }
 
+        public IEnumerable<Tbl_Entity> GetProduct()
+        {
+            return _dbSet.ToList();
+        }
+
         private IRepository<Tbl_Entity> _repositoryImplementation;
         public IEnumerable<Tbl_Entity> GetAllRecords()
         {
